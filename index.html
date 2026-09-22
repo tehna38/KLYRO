@@ -1,46 +1,267 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>KLYRO — Accessoires pour ton quotidien</title>
-  <meta name="description" content="Coques, MagSafe, câbles et protections KLYRO.">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KLYRO — Accessories</title>
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;color:#111;background:#fff}
+button{cursor:pointer}
+.top{background:#111;color:white;text-align:center;padding:9px;font-size:12px;letter-spacing:2px}
+nav{height:70px;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between;padding:0 6%;position:sticky;top:0;background:white;z-index:5}
+.logo{font-size:25px;font-weight:900;letter-spacing:5px}
+.links{display:flex;gap:30px;font-size:14px}
+.links a{color:#111;text-decoration:none}
+.cart{background:#111;color:white;border:0;border-radius:25px;padding:12px 18px}
+.hero{background:#f2f2f0;padding:80px 7%;display:flex;align-items:center;justify-content:space-between}
+.hero h1{font-size:clamp(45px,7vw,80px);line-height:.95;max-width:700px;margin:15px 0}
+.hero p{color:#666;font-size:17px}
+.cta{background:#111;color:white;border:0;padding:16px 25px;margin-top:15px}
+.heroimg{width:300px;height:300px;background:#111;border-radius:35px;display:flex;align-items:center;justify-content:center}
+.phone{width:140px;height:250px;border:7px solid #333;border-radius:30px;background:linear-gradient(140deg,#eee,#999)}
+section{padding:70px 7%}
+h2{font-size:32px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{border:1px solid #e5e5e5;padding:14px;border-radius:8px}
+.visual{height:230px;background:#f3f3f3;display:flex;align-items:center;justify-content:center}
+.case{width:105px;height:180px;border-radius:25px;background:linear-gradient(140deg,#222,#777);display:flex;align-items:end;justify-content:center;color:white;padding-bottom:15px;font-size:10px;letter-spacing:2px}
+.case.white{background:linear-gradient(140deg,#fff,#aaa);color:#111}
+.card h3{font-size:16px;margin-bottom:5px}
+.card p{color:#777;font-size:13px}
+.price{font-weight:bold;margin:12px 0}
+.add{width:100%;background:#111;color:white;border:0;padding:13px}
+.benefits{background:#111;color:white;display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.benefits span{display:block;color:#aaa;margin-top:8px;font-size:13px}
+footer{background:#111;color:white;text-align:center;padding:45px}
+.drawer{position:fixed;right:-420px;top:0;width:min(420px,100%);height:100%;background:white;z-index:20;padding:25px;box-shadow:-10px 0 40px #0002;transition:.3s}
+.drawer.open{right:0}
+.drawerhead{display:flex;justify-content:space-between;border-bottom:1px solid #eee;padding-bottom:20px}
+.close{border:0;background:none;font-size:30px}
+.item{display:flex;justify-content:space-between;padding:18px 0;border-bottom:1px solid #eee}
+.total{display:flex;justify-content:space-between;font-size:20px;font-weight:bold;margin:25px 0}
+.checkout{width:100%;background:#111;color:white;border:0;padding:16px}
+@media(max-width:800px){
+.grid{grid-template-columns:repeat(2,1fr)}
+.heroimg{display:none}
+.links{display:none}
+.benefits{grid-template-columns:1fr}
+}
+</style>
 </head>
+
 <body>
-  <div class="topbar">Livraison en France · Paiement sécurisé · KLYRO10 : -10% première commande</div>
-  <header>
-    <a class="logo" href="#">KLYRO<span>ACCESSORIES FOR YOUR EVERYDAY</span></a>
-    <nav>
-      <a href="#shop">Boutique</a><a href="#best">Best-sellers</a><a href="#about">À propos</a>
-    </nav>
-    <button class="cart" onclick="openCart()">Panier <b id="count">0</b></button>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div>
-        <p class="eyebrow">NOUVELLE COLLECTION</p>
-        <h1>ACCESSOIRES QUI<br> SUIVENT TON RYTHME.</h1>
-        <p>Coques. MagSafe. Câbles. Protection.<br>Tout pour ton iPhone.</p>
-        <a class="btn" href="#shop">DÉCOUVRIR LA COLLECTION →</a>
-      </div>
-      <div class="hero-product"><div class="phone">KLYRO<br><small>MAGSAFE</small></div></div>
-    </section>
+<div class="top">LIVRAISON EN FRANCE • PAIEMENT SÉCURISÉ</div>
 
-    <section id="best" class="section">
-      <p class="eyebrow">NOS BEST-SELLERS</p><h2>Les incontournables.</h2>
-      <div id="shop" class="grid"></div>
-    </section>
+<nav>
+<div class="logo">KLYRO</div>
 
-    <section id="about" class="why">
-      <div><p class="eyebrow">POURQUOI KLYRO ?</p><h2>Simple. Clean. Utile.</h2></div>
-      <div class="features"><div><b>✦</b><strong>Design soigné</strong><span>Des accessoires stylés.</span></div><div><b>€</b><strong>Prix accessibles</strong><span>Le bon rapport qualité/prix.</span></div><div><b>↗</b><strong>Expédition</strong><span>Suivi de commande.</span></div><div><b>✓</b><strong>Paiement sécurisé</strong><span>Données protégées.</span></div></div>
-    </section>
-  </main>
+<div class="links">
+<a href="#shop">Boutique</a>
+<a href="#about">Pourquoi KLYRO</a>
+</div>
 
-  <footer>KLYRO · ACCESSORIES FOR YOUR EVERYDAY</footer>
-  <div id="cart" class="drawer"><button onclick="closeCart()">×</button><h2>Ton panier</h2><div id="cartItems"></div><div class="total">Total <b id="total">0,00 €</b></div><button class="btn full" onclick="checkout()">PASSER COMMANDE</button><p class="note">Le paiement sera relié à Stripe Payment Links/Checkout après création du compte vendeur.</p></div>
-  <script src="app.js"></script>
+<button class="cart" onclick="openCart()">
+Panier (<span id="count">0</span>)
+</button>
+</nav>
+
+<section class="hero">
+
+<div>
+<small>KLYRO / EVERYDAY TECH</small>
+
+<h1>ACCESSOIRES QUI SUIVENT TON RYTHME.</h1>
+
+<p>Des accessoires simples, propres et pensés pour ton quotidien.</p>
+
+<button class="cta" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">
+DÉCOUVRIR LA COLLECTION
+</button>
+</div>
+
+<div class="heroimg">
+<div class="phone"></div>
+</div>
+
+</section>
+
+<section id="shop">
+
+<h2>LES ESSENTIELS KLYRO</h2>
+
+<div class="grid" id="products"></div>
+
+</section>
+
+<section class="benefits" id="about">
+
+<div>
+<b>DESIGN CLEAN</b>
+<span>Des accessoires simples et élégants.</span>
+</div>
+
+<div>
+<b>PRIX ACCESSIBLES</b>
+<span>Des produits utiles à prix raisonnables.</span>
+</div>
+
+<div>
+<b>POUR TOUS LES JOURS</b>
+<span>Coques, protections et accessoires.</span>
+</div>
+
+</section>
+
+<footer>
+<div class="logo">KLYRO</div>
+<p>More than accessories. Better everyday.</p>
+</footer>
+
+<div class="drawer" id="drawer">
+
+<div class="drawerhead">
+<b>TON PANIER</b>
+<button class="close" onclick="closeCart()">×</button>
+</div>
+
+<div id="items">Ton panier est vide.</div>
+
+<div class="total">
+<span>Total</span>
+<span id="total">0,00 €</span>
+</div>
+
+<button class="checkout" onclick="checkout()">
+PASSER AU PAIEMENT
+</button>
+
+</div>
+
+<script>
+
+const products=[
+["KLYRO Clear","Coque transparente MagSafe",14.90],
+["KLYRO Armor","Coque anti-choc",16.90],
+["KLYRO Mag","Coque MagSafe premium",18.90],
+["KLYRO Glass","Protection écran",14.90],
+["KLYRO Cable","Câble USB-C renforcé",12.90],
+["KLYRO Mount","Support voiture MagSafe",19.90],
+["KLYRO Ring","Anneau MagSafe",9.90],
+["KLYRO Stand","Support bureau",15.90]
+];
+
+let cart=[];
+
+function euro(n){
+return n.toFixed(2).replace(".",",")+" €";
+}
+
+function draw(){
+
+document.getElementById("products").innerHTML=products.map((p,i)=>`
+
+<div class="card">
+
+<div class="visual">
+<div class="case ${i==0?'white':''}">KLYRO</div>
+</div>
+
+<h3>${p[0]}</h3>
+
+<p>${p[1]}</p>
+
+<div class="price">${euro(p[2])}</div>
+
+<button class="add" onclick="add(${i})">
+AJOUTER AU PANIER
+</button>
+
+</div>
+
+`).join("");
+
+update();
+
+}
+
+function add(i){
+
+cart.push(products[i]);
+
+update();
+
+openCart();
+
+}
+
+function update(){
+
+document.getElementById("count").textContent=cart.length;
+
+document.getElementById("items").innerHTML=cart.length
+
+?cart.map((p,i)=>`
+
+<div class="item">
+
+<span>${p[0]}</span>
+
+<b>${euro(p[2])}</b>
+
+<button onclick="removeItem(${i})">×</button>
+
+</div>
+
+`).join("")
+
+:"Ton panier est vide.";
+
+let total=cart.reduce((sum,p)=>sum+p[2],0);
+
+document.getElementById("total").textContent=euro(total);
+
+}
+
+function removeItem(i){
+
+cart.splice(i,1);
+
+update();
+
+}
+
+function openCart(){
+
+document.getElementById("drawer").classList.add("open");
+
+}
+
+function closeCart(){
+
+document.getElementById("drawer").classList.remove("open");
+
+}
+
+function checkout(){
+
+if(!cart.length){
+
+alert("Ton panier est vide.");
+
+return;
+
+}
+
+alert("Le paiement sera bientôt disponible.");
+
+}
+
+draw();
+
+</script>
+
 </body>
 </html>
